@@ -32,12 +32,11 @@ namespace PINRezultati.Controllers
             {
                 return NotFound();
             }
-
             var rezultati = await _context.Rezultati
                 .FirstOrDefaultAsync(m => m.studMb == id);
             if (rezultati == null)
             {
-                return NotFound();
+                return Error();
             }
 
             return View(rezultati);
@@ -148,6 +147,10 @@ namespace PINRezultati.Controllers
         private bool RezultatiExists(int id)
         {
             return _context.Rezultati.Any(e => e.studId == id);
+        }
+        public IActionResult Error()
+        {
+            return View("Error");
         }
     }   
 }

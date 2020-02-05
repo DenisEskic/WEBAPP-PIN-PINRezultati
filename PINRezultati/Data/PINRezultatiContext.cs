@@ -13,7 +13,7 @@ namespace PINRezultati.Models
             : base(options)
         {
         }
-
+        //COMMENT
         public DbSet<PINRezultati.Models.Rezultati.Rezultati> Rezultati { get; set; }
     }
 }
