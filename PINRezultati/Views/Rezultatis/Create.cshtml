@@ -1,0 +1,52 @@
+﻿@model PINRezultati.Models.Rezultati.Rezultati
+
+@{
+    ViewData["Title"] = "Dodaj novog studenta";
+}
+
+<h1>Dodaj novog studenta</h1>
+
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                Matični broj studenta
+                <input asp-for="studMb" class="form-control" />
+                <span asp-validation-for="studMb" type="number"class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                Ime studenta
+                <input asp-for="ime" type="text" class="form-control" />
+                <span asp-validation-for="ime" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                Prezime studenta
+                <input asp-for="prezime"  type="text" class="form-control" />
+                <span asp-validation-for="prezime" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                Ocjena iz pismenog kolokvija
+                <input asp-for="ocjenaKolokvij" type="number" min="0" max="100" class="form-control" />
+                <span asp-validation-for="ocjenaKolokvij" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                Ocjena iz praktičnog projekta
+                <input asp-for="ocjenaProjekt" type="number" min="0" max="100" class="form-control" />
+                <span asp-validation-for="ocjenaProjekt" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit"  value="Kreiraj" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Nazad</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

@@ -1,0 +1,47 @@
+﻿@model PINRezultati.Models.Rezultati.Rezultati
+
+
+@{
+    ViewData["Title"] = "Detalji";
+}
+<h1>Detalji</h1>
+
+<div>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            Matični broj studenta:
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.studMb)
+        </dd>
+        <dt class="col-sm-2">
+            Ime studenta:
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.ime)
+        </dd>
+        <dt class="col-sm-2">
+            Prezime studenta:
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.prezime)
+        </dd>
+        <dt class="col-sm-2">
+            Ocjena iz pismenog kolokvija:
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.ocjenaKolokvij)%
+        </dd>
+        <dt class="col-sm-2">
+            Ocjena iz praktičnog rada:
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.ocjenaProjekt)%
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.studId">Promijeni</a> |
+    <a asp-action="Index">Nazad</a>
+</div>

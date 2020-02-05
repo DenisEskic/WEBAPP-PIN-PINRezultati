@@ -1,0 +1,69 @@
+﻿@model IEnumerable<PINRezultati.Models.Rezultati.Rezultati>
+
+@{
+    ViewData["Title"] = "PINRezultati";
+}
+
+<h1>PINRezultati</h1>
+
+<p>
+    <a asp-action="Create">Dodaj studenta</a>
+</p>
+<div style="position:center">
+    <h3>Trenutno je @Model.Select(i => i.studId).Count() upisanih studenata.</h3>
+</div>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Matični broj studenta
+            </th>
+            <th>
+                Ime studenta
+            </th>
+            <th>
+                Prezime studenta
+            </th>
+            <th>
+                Ocjena iz pismenog kolokvija
+            </th>
+            <th>
+                Ocjena iz praktičnog projekta
+            </th>
+            <th>
+                Ocjena predmeta
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.studMb)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ime)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.prezime)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ocjenaKolokvij)%
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ocjenaProjekt)%
+                </td>
+                <td>
+                    @(((item.ocjenaKolokvij) + (item.ocjenaProjekt)) / 2)%
+                </td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.studId">Promijeni</a> |
+                    <a asp-action="Details" asp-route-id="@item.studMb">Detalji</a> |
+                    <a asp-action="Delete" asp-route-id="@item.studId">Obriši</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

@@ -1,0 +1,19 @@
+﻿@*@model IEnumerable<PINRezultati.Models.Rezultati.Rezultati>*@
+@{
+    ViewData["Title"] = "Home";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Dobrodošli na PINRezultate</h1><br>
+
+    <h3>Pretražite po matičnom broju studenta</h3><br>
+
+    <div style="position:center">
+            <form asp-action="Details"  asp-controller="Rezultatis" method="post">
+            <input type="number" name="id">
+            <input type="submit" value="Pretraži" class="btn btn-primary" />
+            </form>
+    </div>
+    <br>
+    <label> Ili pritisnite Dodaj studenta za unos</label>
+</div>

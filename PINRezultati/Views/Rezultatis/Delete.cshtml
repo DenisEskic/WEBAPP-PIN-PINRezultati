@@ -1,0 +1,50 @@
+﻿@model PINRezultati.Models.Rezultati.Rezultati
+
+@{
+    ViewData["Title"] = "Obriši";
+}
+
+<h1>Obriši</h1>
+
+<h3>Sigurno želite obrsati?</h3>
+<div>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            Matični broj
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.studMb)
+        </dd>
+        <dt class = "col-sm-2">
+            Ime studenta
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.ime)
+        </dd>
+        <dt class = "col-sm-2">
+            Prezime studenta
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.prezime)
+        </dd>
+        <dt class = "col-sm-2">
+            Ocjena iz pismenog kolokvija
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.ocjenaKolokvij)
+        </dd>
+        <dt class = "col-sm-2">
+            Ocjena iz praktičnog projekta
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.ocjenaProjekt)
+        </dd>
+    </dl>
+    
+    <form asp-action="Delete">
+        <input type="hidden" asp-for="studId" />
+        <input type="submit" value="Izbriši" class="btn btn-danger" /> |
+        <a asp-action="Index">Nazad</a>
+    </form>
+</div>
